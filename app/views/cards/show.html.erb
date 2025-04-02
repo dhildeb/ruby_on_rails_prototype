@@ -1,0 +1,9 @@
+<h1><%= @card.name %></h1>
+
+<div class="card-details">
+  <p>Value: <%= @card.value %></p>
+  <p>Consumable: <%= @card.is_consumable ? 'Yes' : 'No' %></p>
+  <%= button_to "Delete", @card, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+</div>
+
+<%= link_to "Back to cards", cards_path %>

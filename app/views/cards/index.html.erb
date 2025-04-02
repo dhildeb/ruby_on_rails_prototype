@@ -1,0 +1,14 @@
+<h1>Cards</h1>
+
+<%= link_to "New Card", new_card_path %>
+
+<div class="cards">
+  <% @cards.each do |card| %>
+    <div class="card">
+      <h2><%= card.name %></h2>
+      <p>Value: <%= card.value %></p>
+      <p>Consumable: <%= card.is_consumable ? 'Yes' : 'No' %></p>
+      <%= link_to "View", card_path(card) %>
+    </div>
+  <% end %>
+</div>

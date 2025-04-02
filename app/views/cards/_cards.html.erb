@@ -1,0 +1,5 @@
+<%= form_with model: [ cards, cards.new] do |form| %>
+    Your Card: <br>
+    <%= form.text_area :conten, size: "20x5" %><br>
+    <%= form.submit %>
+<% end %>
