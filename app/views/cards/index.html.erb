@@ -1,14 +1,36 @@
-<h1>Cards</h1>
+<div id="flash-notice" class="notice absolute right-[5%]">
+  <span><%= flash[:notice] %></span>
+    <button id="close-notice" onclick="closeNotice()">✖</button>
 
-<%= link_to "New Card", new_card_path %>
-
-<div class="cards">
-  <% @cards.each do |card| %>
-    <div class="card">
+</div>
+<div class="cards flex w-full">
+  <% @current_cards.each do |card_id| %>
+  <% card = Card.find(card_id) %>
+    <div class="card p-auto border-2 w-auto" id="card-<%= card.id %>">
       <h2><%= card.name %></h2>
-      <p>Value: <%= card.value %></p>
-      <p>Consumable: <%= card.is_consumable ? 'Yes' : 'No' %></p>
-      <%= link_to "View", card_path(card) %>
+      <p>Damage: <%= card.dmg %></p>
+      <p>Type: <%= card.card_type %></p>
+      <p>Durability: <%= card.durability %></p>
+      <p>Description: <%= card.effect %></p>
+      <%= button_to "Use", use_card_card_path(card), method: :post, data: { turbo_confirm: "Are you sure you want to remove this card?" } %>
     </div>
   <% end %>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    window.closeNotice = function() {
+      var notice = document.getElementById('flash-notice');
+      if (notice) {
+        notice.remove();
+      }
+    };
+
+    var notice = document.getElementById('flash-notice');
+    if (notice) {
+      setTimeout(function() {
+        closeNotice();
+      }, 5000);
+    }
+  });
+</script>

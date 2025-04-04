@@ -1,9 +1,25 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+# Clear existing records (optional)
+Card.destroy_all
+
+# Create sample cards
+Card.create([
+  { name: "Fireball", dmg: 30, card_type: "Spell", durability: 1, effect: "area_effect" },
+  { name: "Shield", dmg: 3, card_type: "Defense", durability: 0, effect: "" },
+  { name: "Sword", dmg: 5, card_type: "Weapon", durability: 0, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Goblin", dmg: 1, card_type: "Enemy", durability: 3, effect: "" },
+  { name: "Orc", dmg: 2, card_type: "Enemy", durability: 4, effect: "" },
+  { name: "Orc", dmg: 2, card_type: "Enemy", durability: 4, effect: "" },
+  { name: "Orc", dmg: 2, card_type: "Enemy", durability: 4, effect: "" },
+])
+
+puts "Seeded #{Card.count} cards."

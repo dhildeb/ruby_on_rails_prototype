@@ -1,0 +1,18 @@
+<%= form_with model: @card do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div>
+    <%= form.label :is_consumable %>
+    <%= form.check_box :is_consumable %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

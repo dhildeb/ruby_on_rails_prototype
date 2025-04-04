@@ -1,0 +1,9 @@
+<% if flash[:notice] %>
+  <turbo-stream action="append" target="flash-notice">
+    <template>
+      <div class="notice" style="position: absolute; right: 5%;">
+        <span><%= flash[:notice] %></span>
+      </div>
+    </template>
+  </turbo-stream>
+<% end %>

@@ -1,22 +1,4 @@
-<h1>New Card</h1>
+<h1>New card</h1>
 
-<%= form_with(model: @card) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :value %>
-    <%= form.text_field :value %>
-  </div>
-
-  <div>
-    <%= form.label :is_consumable %>
-    <%= form.check_box :is_consumable %>
-  </div>
-
-  <%= form.submit "Create Card" %>
-<% end %>
-
-<%= link_to "Back to cards", cards_path %>
+<%= render "form", card: @card %>
+<%= link_to "Cancel", cards_path %>
